@@ -1,0 +1,1806 @@
+{
+    "meta": {
+        "version": "3.5.0",
+        "report_json_url": "https://raw.githubusercontent.com/eosc-synergy/CEMS2.assess.sqaaas/main/.report/assessment_output.json",
+        "report_permalink": "https://sqaaas.eosc-synergy.eu/full-assessment/report/https://raw.githubusercontent.com/eosc-synergy/CEMS2.assess.sqaaas/main/.report/assessment_output.json",
+        "timestamp": 1748962470.9563546
+    },
+    "repository": [
+        {
+            "url": "https://github.com/jaimeib/CEMS2",
+            "name": "jaimeib/CEMS2",
+            "tag": "main",
+            "commit_id": "74687487e3fd2178207753a706990569b1d2f7bb",
+            "is_main_repo": true,
+            "avatar_url": "https://avatars.githubusercontent.com/u/82649677?v=4",
+            "description": null,
+            "languages": null,
+            "topics": null,
+            "stargazers_count": null,
+            "watchers_count": null,
+            "contributors_count": null,
+            "forks_count": null,
+            "badge_status": "no_badge"
+        }
+    ],
+    "report": {
+        "QC.Acc": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Acc01": {
+                    "description": "Is the source code managed with a Version Control System?",
+                    "requirement_level": "MUST",
+                    "hint": "The source code shall be managed with Git and remain publicly available for this criterion to be successful. Please check <a href=\"https://git-scm.com/book/es/v2\" target=\"_blank\">Pro Git</a> docs about how to get started using Git tool. Guidelines provided by the most popular social coding platforms (<a href=\"https://docs.github.com/get-started\" target=\"_blank\">GitHub</a>, <a href=\"https://about.gitlab.com/get-started/\" target=\"_blank\">GitLab</a>) are also a good starting point",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code uses Git for version control",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": "scm",
+                                "version": "2.34.1",
+                                "docker": {
+                                    "image": "bitnami/git:2.34.1",
+                                    "reviewed": "2021-12-30"
+                                },
+                                "ci": {
+                                    "name": "QC.Acc github.com/jaimeib/CEMS2 git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/34/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Doc": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Doc06.1": {
+                    "description": "Is the software scope outlined in the code repository?",
+                    "requirement_level": "MUST",
+                    "hint": "A README file presents your software to the audience interested in your software project. Several online sites simplify the task of creating the README file, such as <a href=\"https://www.makeareadme.com/\" target=\"_blank\">Make a README</a> or <a href=\"https://readme.so/\" target=\"_blank\">readme.so</a> sites. Be sure to add it to the code repository's root path",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "A README file is present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/jaimeib/CEMS2 find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 208}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 208
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc06.3": {
+                    "description": "Does the project establish a code of conduct for its participants?",
+                    "requirement_level": "MUST",
+                    "hint": "A CODE_OF_CONDUCT file sets the path for a constructive, respectful and positive atmosphere among all the contributors in your software project. Of course you can define your own, but in case you want to rely on external and widely-adopted code of conducts check out some of the most popular ones: <a href=\"https://contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a> or <a href=\"https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/\" target=\"_blank\">Citizen Code of Conduct</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CODE_OF_CONDUCT file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/jaimeib/CEMS2 find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 208}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 208
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc06.2": {
+                    "description": "Is there a clear path or guidelines on how to contribute to the code?",
+                    "requirement_level": "MUST",
+                    "hint": "A CONTRIBUTING file shall be present in the root path of the code repository describing the expected workflow to follow when adding contributions. Please check <a href=\"https://mozillascience.github.io/working-open-workshop/contributing/\" target=\"_blank\">Mozilla's guidelines</a> and <a href=\"https://github.com/github/docs/blob/main/CONTRIBUTING.md\" target=\"_blank\">GitHub's CONTRIBUTING.md example</a> to get inspired on how to write a good CONTRIBUTING file",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CONTRIBUTING file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/jaimeib/CEMS2 find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 208}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 208
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc01.1": {
+                    "description": "Are docs managed in the same repository as code?",
+                    "requirement_level": "MAY",
+                    "hint": "This subcriterion will succeed if the documentation files exist on the same repository as the source code, e.g. under a <code>docs/</code> folder",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Documentation resides in the same repository as code",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": null,
+                                "version": null,
+                                "docker": null,
+                                "ci": {
+                                    "name": "QC.Doc github.com/jaimeib/CEMS2 git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/52/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc02.X": {
+                    "description": "Are docs following a style for the Markdown markup language?",
+                    "requirement_level": "MAY",
+                    "hint": "When using a docs-as-code approach, the style of the markup language is being checked. SQAaaS relies on <a href=\"https://github.com/markdownlint/markdownlint/\" target=\"_blank\">markdownlint</a> for Markdown files and <a href=\"https://github.com/twolfson/restructuredtext-lint/\" target=\"_blank\">restructuredtext-lint</a> for reStructuredText",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Docs are not fully compliant with markdownlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-markdownlint",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "markdownlint",
+                                "lang": "Markdown",
+                                "version": "0.11.0",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/markdownlint/Dockerfile",
+                                    "reviewed": "1970-01-01"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/jaimeib/CEMS2 markdownlint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "mdl --json  ."
+                                    ],
+                                    "stdout_text": "[{\"filename\":\"./README.md\",\"line\":3,\"rule\":\"MD002\",\"aliases\":[\"first-header-h1\"],\"description\":\"First header should be a top level header\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md002---first-header-should-be-a-top-level-header\"}]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/61/log?consoleFull"
+                                },
+                                "level": "RECOMMENDED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "./README.md": {
+                                    "MD002": {
+                                        "description": "First header should be a top level header",
+                                        "line": [
+                                            3
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 40,
+                "total_subcriteria": 5,
+                "success_subcriteria": 2
+            }
+        },
+        "QC.Lic": {
+            "valid": false,
+            "subcriteria": {},
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 0,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Sec": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Sec02": {
+                    "description": "Is the source code passing Static Analysis Security Testing (SAST)?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the SAST tool",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code files pass SAST checks performed by bandit tool",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-bandit",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "bandit",
+                                "lang": "Python",
+                                "version": "1.7.4",
+                                "docker": {
+                                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sec github.com/jaimeib/CEMS2 bandit",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "bandit -f json --quiet  --confidence-level high --severity-level high --recursive  ."
+                                    ],
+                                    "stdout_text": "{\n  \"errors\": [],\n  \"generated_at\": \"2025-06-03T14:52:43Z\",\n  \"metrics\": {\n    \"./cems2/API/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/api.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 17,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/database/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/database/config.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 27,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/database/loader.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 401,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/models/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/models/machine.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 27,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/routes/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/routes/actions.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 181,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/routes/machine.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 345,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/routes/monitoring.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 213,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/API/test/test_routes_machine_database.py\": {\n      \"CONFIDENCE.HIGH\": 34,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 34,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 177,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/__main__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 66,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/base.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 15,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 57,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/plugins/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/plugins/openstack_utilization.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 25,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/plugins/test.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 33,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/plugins/test2.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 33,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/plugins/testUtilization.py\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 36,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/collector/plugins/testVMs.py\": {\n      \"CONFIDENCE.HIGH\": 5,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 5,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 45,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 150,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/plugin_loader.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 46,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/reporter/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/reporter/base.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 13,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/reporter/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 52,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/reporter/plugins/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/reporter/plugins/grafana.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 16,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/reporter/plugins/test.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 18,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/cloud_analytics/reporter/plugins/test2.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 18,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/config_loader.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 9,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/log.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 85,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 294,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/plugin_loader.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 72,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_connector/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_connector/base.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 45,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_connector/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 143,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_connector/plugins/IPMI.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 50,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_connector/plugins/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_connector/plugins/test.py\": {\n      \"CONFIDENCE.HIGH\": 4,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 4,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 78,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_connector/plugins/test2.py\": {\n      \"CONFIDENCE.HIGH\": 4,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 4,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 78,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_optimization/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_optimization/base.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 28,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_optimization/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 120,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_optimization/plugins/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_optimization/plugins/test.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 101,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_optimization/plugins/test2.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 101,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/pm_optimization/plugins/test3.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 101,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_connector/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_connector/base.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 15,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_connector/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 89,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_connector/plugins/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_connector/plugins/openstack_migration.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 8,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_connector/plugins/test.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 21,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_connector/plugins/test2.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 20,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_optimization/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_optimization/base.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 28,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_optimization/manager.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 115,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_optimization/plugins/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_optimization/plugins/test.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 135,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_optimization/plugins/test2.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 135,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/machines_control/vm_optimization/plugins/test3.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 135,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/schemas/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/schemas/machine.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 29,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/schemas/message.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 5,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/schemas/metric.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 26,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2/schemas/plugin.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 7,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2cli/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2cli/__main__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 11,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2cli/command/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2cli/command/actions.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 244,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2cli/command/machine.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 259,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2cli/command/monitoring.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 199,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./cems2cli/config_loader.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 9,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./setup.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 64,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 64,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4808,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/79/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "errors": [],
+                                "generated_at": "2025-06-03T14:52:43Z",
+                                "metrics": {
+                                    "./cems2/API/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/api.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 17,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/database/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/database/config.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 27,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/database/loader.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 401,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/models/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/models/machine.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 27,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/routes/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/routes/actions.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 181,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/routes/machine.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 345,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/routes/monitoring.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 213,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/API/test/test_routes_machine_database.py": {
+                                        "CONFIDENCE.HIGH": 34,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 34,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 177,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/__main__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 66,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/base.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 15,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 57,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/plugins/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/plugins/openstack_utilization.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 25,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/plugins/test.py": {
+                                        "CONFIDENCE.HIGH": 2,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 2,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 33,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/plugins/test2.py": {
+                                        "CONFIDENCE.HIGH": 2,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 2,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 33,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/plugins/testUtilization.py": {
+                                        "CONFIDENCE.HIGH": 3,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 3,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 36,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/collector/plugins/testVMs.py": {
+                                        "CONFIDENCE.HIGH": 5,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 5,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 45,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 150,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/plugin_loader.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 46,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/reporter/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/reporter/base.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 13,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/reporter/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 52,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/reporter/plugins/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/reporter/plugins/grafana.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 16,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/reporter/plugins/test.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 18,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/cloud_analytics/reporter/plugins/test2.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 18,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/config_loader.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 9,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/log.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 85,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 294,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/plugin_loader.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 72,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_connector/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_connector/base.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 45,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_connector/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 143,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_connector/plugins/IPMI.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 50,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_connector/plugins/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_connector/plugins/test.py": {
+                                        "CONFIDENCE.HIGH": 4,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 4,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 78,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_connector/plugins/test2.py": {
+                                        "CONFIDENCE.HIGH": 4,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 4,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 78,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_optimization/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_optimization/base.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 28,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_optimization/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 120,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_optimization/plugins/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_optimization/plugins/test.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 101,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_optimization/plugins/test2.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 101,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/pm_optimization/plugins/test3.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 101,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_connector/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_connector/base.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 15,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_connector/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 89,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_connector/plugins/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_connector/plugins/openstack_migration.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 8,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_connector/plugins/test.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 21,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_connector/plugins/test2.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 20,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_optimization/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_optimization/base.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 28,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_optimization/manager.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 115,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_optimization/plugins/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_optimization/plugins/test.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 135,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_optimization/plugins/test2.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 135,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/machines_control/vm_optimization/plugins/test3.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 135,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/schemas/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/schemas/machine.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 29,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/schemas/message.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 5,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/schemas/metric.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 26,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2/schemas/plugin.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 7,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2cli/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2cli/__main__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 11,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2cli/command/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2cli/command/actions.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 244,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2cli/command/machine.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 259,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2cli/command/monitoring.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 199,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./cems2cli/config_loader.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 9,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./setup.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 2,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "_totals": {
+                                        "CONFIDENCE.HIGH": 64,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 64,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 4808,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    }
+                                },
+                                "results": []
+                            }
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Sty": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sty01": {
+                    "description": "Is the software product following a style standard for Python files?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the linter tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Python files are not fully compliant with flake8 (pycodestyle, pyflakes, mccabe) standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-flake8",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "flake8",
+                                "lang": "Python",
+                                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
+                                "docker": {
+                                    "image": "pipelinecomponents/flake8:0.9.0",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty github.com/jaimeib/CEMS2 flake8",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "flake8 ."
+                                    ],
+                                    "stdout_text": "./cems2/API/database/loader.py:146:89: E501 line too long (110 > 88 characters)\n                f\"The range of the group {group['groupname']} is full. The IP {first_ip} is out of the range.\"\n                                                                                        ^\n./cems2/API/database/loader.py:150:89: E501 line too long (100 > 88 characters)\n            # Generate the hostname in the same format as the hostname_range (same number of digits)\n                                                                                        ^\n./cems2/API/database/loader.py:183:89: E501 line too long (99 > 88 characters)\n            f\"The hostname of the group {group['groupname']} is not consistent with the groupname.\"\n                                                                                        ^\n./cems2/API/database/loader.py:236:89: E501 line too long (103 > 88 characters)\n            f\"The number of hosts of the group {group['groupname']} is not equal to the number of IPs.\"\n                                                                                        ^\n./cems2/API/database/loader.py:308:89: E501 line too long (90 > 88 characters)\n            f\"The host {host['hostname']} does not exist, when looking for management_ip.\"\n                                                                                        ^\n./cems2/API/database/loader.py:330:89: E501 line too long (96 > 88 characters)\n            f\"The host {host['hostname']} does not exist, when looking for management_username.\"\n                                                                                        ^\n./cems2/API/database/loader.py:352:89: E501 line too long (96 > 88 characters)\n            f\"The host {host['hostname']} does not exist, when looking for management_password.\"\n                                                                                        ^\n./cems2/API/database/loader.py:403:89: E501 line too long (165 > 88 characters)\n                    f\"Host {host.hostname} was not updated because the ip {host.management_ip} already exists in the database in the host {repetedip_host.hostname}.\"\n                                                                                        ^\n./cems2/API/database/loader.py:441:89: E501 line too long (157 > 88 characters)\n            f\"Host {host.hostname} was not created because the ip {host.management_ip} already exists in the database in the host {repetedip_host.hostname}.\"\n                                                                                        ^\n./cems2/API/database/loader.py:478:9: W503 line break before binary operator\n        and machine.brand_model == host.brand_model\n        ^\n./cems2/API/database/loader.py:479:9: W503 line break before binary operator\n        and machine.management_ip == host.management_ip\n        ^\n./cems2/API/database/loader.py:480:9: W503 line break before binary operator\n        and machine.management_username == host.management_username\n        ^\n./cems2/API/database/loader.py:481:9: W503 line break before binary operator\n        and machine.management_password == host.management_password\n        ^\n./cems2/API/database/loader.py:482:9: W503 line break before binary operator\n        and machine.connector == host.connector\n        ^\n./cems2/API/database/loader.py:574:89: E501 line too long (95 > 88 characters)\n                # Also disable the monitoring flag of the machine (because it is not available)\n                                                                                        ^\n./cems2/API/database/loader.py:576:89: E501 line too long (98 > 88 characters)\n                # Also disable the energy_status flag of the machine (because it is not available)\n                                                                                        ^\n./cems2/API/test/test_routes_machine_database.py:3:1: F401 'json' imported but unused\nimport json\n^\n./cems2/API/test/test_routes_machine_database.py:120:38: E712 comparison to False should be 'if cond is False:' or 'if not cond:'\n        assert machine[\"monitoring\"] == False\n                                     ^\n./cems2/API/test/test_routes_machine_database.py:242:89: E501 line too long (93 > 88 characters)\n    \"\"\"Test GET \"/machines/hostname={hostname}\" route with a hostname that does not exist.\"\"\"\n                                                                                        ^\n./cems2/API/test/test_routes_machine_database.py:251:89: E501 line too long (94 > 88 characters)\n    \"\"\"Test GET \"/machines/hostname={hostname}\" route with a hostname that is not a string.\"\"\"\n                                                                                        ^\n./cems2/API/models/machine.py:3:1: F401 'sqlalchemy.schema.Table' imported but unused\nfrom sqlalchemy.schema import Column, Table\n^\n./cems2/API/models/machine.py:28:89: E501 line too long (93 > 88 characters)\n    )  # This is the monitoring status of the machine (True = Monitored, False = Unmonitored)\n                                                                                        ^\n./cems2/API/models/machine.py:31:89: E501 line too long (95 > 88 characters)\n    )  # This is the availability status of the machine (True = Available, False = Unavailable)\n                                                                                        ^\n./cems2/API/routes/actions.py:227:89: E501 line too long (102 > 88 characters)\n            not in actions_controller.machines_control_manager.vm_optimization.get_installed_plugins()\n                                                                                        ^\n./cems2/API/routes/actions.py:255:89: E501 line too long (102 > 88 characters)\n            not in actions_controller.machines_control_manager.pm_optimization.get_installed_plugins()\n                                                                                        ^\n./cems2/API/routes/machine.py:160:89: E501 line too long (101 > 88 characters)\n                f\"Machine with hostname: {hostname} not updated: is not available or being monitored\"\n                                                                                        ^\n./cems2/API/routes/machine.py:169:89: E501 line too long (90 > 88 characters)\n            f\"Machine with hostname: {hostname} updated: energy status to {energy_status}\"\n                                                                                        ^\n./cems2/API/routes/monitoring.py:122:89: E501 line too long (89 > 88 characters)\n        # For each machine in the dict of metrics (key: hostname, value: list of metrics)\n                                                                                        ^\n./cems2/API/routes/monitoring.py:135:89: E501 line too long (104 > 88 characters)\n    summary=\"Get the lastest metrics from the cloud analytics system of a machine identified by its ID\",\n                                                                                        ^\n./cems2/API/routes/monitoring.py:141:89: E501 line too long (112 > 88 characters)\n    \"\"\"\n    Get the lastest metrics from the cloud analytics application of a machine by its id with the following data:\n\n    - **name**: Name of the metric\n    - **value**: Value of the metric\n    - **unit**: Unit of the metric\n    - **timestamp**: Timestamp of the metric\n    - **hostname**: Hostname of the machine\n\n    **Returns**: A list of metrics\n\n    **Optional filters:** The metrics can be filtered by the following parameters:\n    - **metric_name**: Name of the metric\n\n    **Raises:**\n    - **HTTPException: 404**: If the machine does not exist by its ID\n    - **HTTPException: 400**: If the machine is not being monitored\n    \"\"\"\n       \n                                                                                ^\n./cems2/API/routes/monitoring.py:187:89: E501 line too long (97 > 88 characters)\n    summary=\"Get the lastest metrics from the cloud analytics system identified by its hostname\",\n                                                                                        ^\n./cems2/API/routes/monitoring.py:193:89: E501 line too long (113 > 88 characters)\n    \"\"\"\n    Get the lastest metrics from the cloud analytics application by the machine hostname with the following data:\n\n    - **name**: Name of the metric\n    - **value**: Value of the metric\n    - **unit**: Unit of the metric\n    - **timestamp**: Timestamp of the metric\n    - **hostname**: Hostname of the machine\n\n    **Returns**: A list of metrics\n\n    **Optional filters:** The metrics can be filtered by the following parameters:\n    - **metric_name**: Name of the metric\n\n    **Raises:**\n    - **HTTPException: 404**: If the machine does not exist by its hostname\n    - **HTTPException: 400**: If the machine is not being monitored\n    \"\"\"\n       \n                                                                                ^\n./cems2/API/routes/monitoring.py:307:89: E501 line too long (93 > 88 characters)\n        # If the state is off, set the admin lock to True in order to not start automatically\n                                                                                        ^\n./cems2/cloud_analytics/__init__.py:1:1: W391 blank line at end of file\n\n^\n./cems2/machines_control/manager.py:397:17: W503 line break before binary operator\n                == CONFIG[\"machines_control.plugins\"][\"default_pm_optimization\"]\n                ^\n./cems2/machines_control/manager.py:428:17: W503 line break before binary operator\n                == CONFIG[\"machines_control.plugins\"][\"default_vm_optimization\"]\n                ^\n./cems2/machines_control/pm_connector/plugins/IPMI.py:3:1: F401 'pyipmi' imported but unused\nimport pyipmi\n^\n./cems2/machines_control/vm_optimization/manager.py:41:89: E501 line too long (97 > 88 characters)\n                f\"VM Optimization plugin '{self.default_vm_optimization_name}' is not installed.\"\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test.py:87:89: E501 line too long (110 > 88 characters)\n        # Add the VMs on the machines with the lowest utilization to the machines with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test.py:92:17: W503 line break before binary operator\n                + utilizations[sorted_machines[-i - 1][0]]\n                ^\n./cems2/machines_control/vm_optimization/plugins/test.py:93:17: W503 line break before binary operator\n                < 100\n                ^\n./cems2/machines_control/vm_optimization/plugins/test.py:95:89: E501 line too long (118 > 88 characters)\n                # Add the VMs from the machine with the lowest utilization to the machine with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:87:89: E501 line too long (110 > 88 characters)\n        # Add the VMs on the machines with the lowest utilization to the machines with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:92:17: W503 line break before binary operator\n                + utilizations[sorted_machines[-i - 1][0]]\n                ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:93:17: W503 line break before binary operator\n                < 100\n                ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:95:89: E501 line too long (118 > 88 characters)\n                # Add the VMs from the machine with the lowest utilization to the machine with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:88:89: E501 line too long (110 > 88 characters)\n        # Add the VMs on the machines with the lowest utilization to the machines with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:93:17: W503 line break before binary operator\n                + utilizations[sorted_machines[-i - 1][0]]\n                ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:94:17: W503 line break before binary operator\n                < 100\n                ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:96:89: E501 line too long (118 > 88 characters)\n                # Add the VMs from the machine with the lowest utilization to the machine with the highest utilization\n                                                                                        ^\n./cems2/machines_control/pm_optimization/manager.py:44:89: E501 line too long (97 > 88 characters)\n                f\"PM Optimization plugin '{self.default_pm_optimization_name}' is not installed.\"\n                                                                                        ^\n./cems2/schemas/message.py:7:89: E501 line too long (89 > 88 characters)\n    \"\"\"Message to HHTP responses schema using Pydantic ORM (Object Relational Mapper).\"\"\"\n                                                                                        ^\n./cems2/schemas/machine.py:16:30: W605 invalid escape sequence '\\.'\n        regex=\"^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$\",\n                             ^\n./cems2cli/command/actions.py:10:1: F401 'rich.progress.Progress' imported but unused\nfrom rich.progress import Progress\n^\n./cems2cli/command/actions.py:12:1: F401 'typing_extensions.Annotated' imported but unused\nfrom typing_extensions import Annotated\n^\n./cems2cli/command/machine.py:10:1: F401 'typing_extensions.Annotated' imported but unused\nfrom typing_extensions import Annotated\n^\n./cems2cli/command/machine.py:344:89: E501 line too long (101 > 88 characters)\n    # Add a row to the table if the machine is available print it in green, otherwise print it in red\n                                                                                        ^",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/88/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": "./cems2/API/database/loader.py:146:89: E501 line too long (110 > 88 characters)\n                f\"The range of the group {group['groupname']} is full. The IP {first_ip} is out of the range.\"\n                                                                                        ^\n./cems2/API/database/loader.py:150:89: E501 line too long (100 > 88 characters)\n            # Generate the hostname in the same format as the hostname_range (same number of digits)\n                                                                                        ^\n./cems2/API/database/loader.py:183:89: E501 line too long (99 > 88 characters)\n            f\"The hostname of the group {group['groupname']} is not consistent with the groupname.\"\n                                                                                        ^\n./cems2/API/database/loader.py:236:89: E501 line too long (103 > 88 characters)\n            f\"The number of hosts of the group {group['groupname']} is not equal to the number of IPs.\"\n                                                                                        ^\n./cems2/API/database/loader.py:308:89: E501 line too long (90 > 88 characters)\n            f\"The host {host['hostname']} does not exist, when looking for management_ip.\"\n                                                                                        ^\n./cems2/API/database/loader.py:330:89: E501 line too long (96 > 88 characters)\n            f\"The host {host['hostname']} does not exist, when looking for management_username.\"\n                                                                                        ^\n./cems2/API/database/loader.py:352:89: E501 line too long (96 > 88 characters)\n            f\"The host {host['hostname']} does not exist, when looking for management_password.\"\n                                                                                        ^\n./cems2/API/database/loader.py:403:89: E501 line too long (165 > 88 characters)\n                    f\"Host {host.hostname} was not updated because the ip {host.management_ip} already exists in the database in the host {repetedip_host.hostname}.\"\n                                                                                        ^\n./cems2/API/database/loader.py:441:89: E501 line too long (157 > 88 characters)\n            f\"Host {host.hostname} was not created because the ip {host.management_ip} already exists in the database in the host {repetedip_host.hostname}.\"\n                                                                                        ^\n./cems2/API/database/loader.py:478:9: W503 line break before binary operator\n        and machine.brand_model == host.brand_model\n        ^\n./cems2/API/database/loader.py:479:9: W503 line break before binary operator\n        and machine.management_ip == host.management_ip\n        ^\n./cems2/API/database/loader.py:480:9: W503 line break before binary operator\n        and machine.management_username == host.management_username\n        ^\n./cems2/API/database/loader.py:481:9: W503 line break before binary operator\n        and machine.management_password == host.management_password\n        ^\n./cems2/API/database/loader.py:482:9: W503 line break before binary operator\n        and machine.connector == host.connector\n        ^\n./cems2/API/database/loader.py:574:89: E501 line too long (95 > 88 characters)\n                # Also disable the monitoring flag of the machine (because it is not available)\n                                                                                        ^\n./cems2/API/database/loader.py:576:89: E501 line too long (98 > 88 characters)\n                # Also disable the energy_status flag of the machine (because it is not available)\n                                                                                        ^\n./cems2/API/test/test_routes_machine_database.py:3:1: F401 'json' imported but unused\nimport json\n^\n./cems2/API/test/test_routes_machine_database.py:120:38: E712 comparison to False should be 'if cond is False:' or 'if not cond:'\n        assert machine[\"monitoring\"] == False\n                                     ^\n./cems2/API/test/test_routes_machine_database.py:242:89: E501 line too long (93 > 88 characters)\n    \"\"\"Test GET \"/machines/hostname={hostname}\" route with a hostname that does not exist.\"\"\"\n                                                                                        ^\n./cems2/API/test/test_routes_machine_database.py:251:89: E501 line too long (94 > 88 characters)\n    \"\"\"Test GET \"/machines/hostname={hostname}\" route with a hostname that is not a string.\"\"\"\n                                                                                        ^\n./cems2/API/models/machine.py:3:1: F401 'sqlalchemy.schema.Table' imported but unused\nfrom sqlalchemy.schema import Column, Table\n^\n./cems2/API/models/machine.py:28:89: E501 line too long (93 > 88 characters)\n    )  # This is the monitoring status of the machine (True = Monitored, False = Unmonitored)\n                                                                                        ^\n./cems2/API/models/machine.py:31:89: E501 line too long (95 > 88 characters)\n    )  # This is the availability status of the machine (True = Available, False = Unavailable)\n                                                                                        ^\n./cems2/API/routes/actions.py:227:89: E501 line too long (102 > 88 characters)\n            not in actions_controller.machines_control_manager.vm_optimization.get_installed_plugins()\n                                                                                        ^\n./cems2/API/routes/actions.py:255:89: E501 line too long (102 > 88 characters)\n            not in actions_controller.machines_control_manager.pm_optimization.get_installed_plugins()\n                                                                                        ^\n./cems2/API/routes/machine.py:160:89: E501 line too long (101 > 88 characters)\n                f\"Machine with hostname: {hostname} not updated: is not available or being monitored\"\n                                                                                        ^\n./cems2/API/routes/machine.py:169:89: E501 line too long (90 > 88 characters)\n            f\"Machine with hostname: {hostname} updated: energy status to {energy_status}\"\n                                                                                        ^\n./cems2/API/routes/monitoring.py:122:89: E501 line too long (89 > 88 characters)\n        # For each machine in the dict of metrics (key: hostname, value: list of metrics)\n                                                                                        ^\n./cems2/API/routes/monitoring.py:135:89: E501 line too long (104 > 88 characters)\n    summary=\"Get the lastest metrics from the cloud analytics system of a machine identified by its ID\",\n                                                                                        ^\n./cems2/API/routes/monitoring.py:141:89: E501 line too long (112 > 88 characters)\n    \"\"\"\n    Get the lastest metrics from the cloud analytics application of a machine by its id with the following data:\n\n    - **name**: Name of the metric\n    - **value**: Value of the metric\n    - **unit**: Unit of the metric\n    - **timestamp**: Timestamp of the metric\n    - **hostname**: Hostname of the machine\n\n    **Returns**: A list of metrics\n\n    **Optional filters:** The metrics can be filtered by the following parameters:\n    - **metric_name**: Name of the metric\n\n    **Raises:**\n    - **HTTPException: 404**: If the machine does not exist by its ID\n    - **HTTPException: 400**: If the machine is not being monitored\n    \"\"\"\n       \n                                                                                ^\n./cems2/API/routes/monitoring.py:187:89: E501 line too long (97 > 88 characters)\n    summary=\"Get the lastest metrics from the cloud analytics system identified by its hostname\",\n                                                                                        ^\n./cems2/API/routes/monitoring.py:193:89: E501 line too long (113 > 88 characters)\n    \"\"\"\n    Get the lastest metrics from the cloud analytics application by the machine hostname with the following data:\n\n    - **name**: Name of the metric\n    - **value**: Value of the metric\n    - **unit**: Unit of the metric\n    - **timestamp**: Timestamp of the metric\n    - **hostname**: Hostname of the machine\n\n    **Returns**: A list of metrics\n\n    **Optional filters:** The metrics can be filtered by the following parameters:\n    - **metric_name**: Name of the metric\n\n    **Raises:**\n    - **HTTPException: 404**: If the machine does not exist by its hostname\n    - **HTTPException: 400**: If the machine is not being monitored\n    \"\"\"\n       \n                                                                                ^\n./cems2/API/routes/monitoring.py:307:89: E501 line too long (93 > 88 characters)\n        # If the state is off, set the admin lock to True in order to not start automatically\n                                                                                        ^\n./cems2/cloud_analytics/__init__.py:1:1: W391 blank line at end of file\n\n^\n./cems2/machines_control/manager.py:397:17: W503 line break before binary operator\n                == CONFIG[\"machines_control.plugins\"][\"default_pm_optimization\"]\n                ^\n./cems2/machines_control/manager.py:428:17: W503 line break before binary operator\n                == CONFIG[\"machines_control.plugins\"][\"default_vm_optimization\"]\n                ^\n./cems2/machines_control/pm_connector/plugins/IPMI.py:3:1: F401 'pyipmi' imported but unused\nimport pyipmi\n^\n./cems2/machines_control/vm_optimization/manager.py:41:89: E501 line too long (97 > 88 characters)\n                f\"VM Optimization plugin '{self.default_vm_optimization_name}' is not installed.\"\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test.py:87:89: E501 line too long (110 > 88 characters)\n        # Add the VMs on the machines with the lowest utilization to the machines with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test.py:92:17: W503 line break before binary operator\n                + utilizations[sorted_machines[-i - 1][0]]\n                ^\n./cems2/machines_control/vm_optimization/plugins/test.py:93:17: W503 line break before binary operator\n                < 100\n                ^\n./cems2/machines_control/vm_optimization/plugins/test.py:95:89: E501 line too long (118 > 88 characters)\n                # Add the VMs from the machine with the lowest utilization to the machine with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:87:89: E501 line too long (110 > 88 characters)\n        # Add the VMs on the machines with the lowest utilization to the machines with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:92:17: W503 line break before binary operator\n                + utilizations[sorted_machines[-i - 1][0]]\n                ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:93:17: W503 line break before binary operator\n                < 100\n                ^\n./cems2/machines_control/vm_optimization/plugins/test2.py:95:89: E501 line too long (118 > 88 characters)\n                # Add the VMs from the machine with the lowest utilization to the machine with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:88:89: E501 line too long (110 > 88 characters)\n        # Add the VMs on the machines with the lowest utilization to the machines with the highest utilization\n                                                                                        ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:93:17: W503 line break before binary operator\n                + utilizations[sorted_machines[-i - 1][0]]\n                ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:94:17: W503 line break before binary operator\n                < 100\n                ^\n./cems2/machines_control/vm_optimization/plugins/test3.py:96:89: E501 line too long (118 > 88 characters)\n                # Add the VMs from the machine with the lowest utilization to the machine with the highest utilization\n                                                                                        ^\n./cems2/machines_control/pm_optimization/manager.py:44:89: E501 line too long (97 > 88 characters)\n                f\"PM Optimization plugin '{self.default_pm_optimization_name}' is not installed.\"\n                                                                                        ^\n./cems2/schemas/message.py:7:89: E501 line too long (89 > 88 characters)\n    \"\"\"Message to HHTP responses schema using Pydantic ORM (Object Relational Mapper).\"\"\"\n                                                                                        ^\n./cems2/schemas/machine.py:16:30: W605 invalid escape sequence '\\.'\n        regex=\"^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$\",\n                             ^\n./cems2cli/command/actions.py:10:1: F401 'rich.progress.Progress' imported but unused\nfrom rich.progress import Progress\n^\n./cems2cli/command/actions.py:12:1: F401 'typing_extensions.Annotated' imported but unused\nfrom typing_extensions import Annotated\n^\n./cems2cli/command/machine.py:10:1: F401 'typing_extensions.Annotated' imported but unused\nfrom typing_extensions import Annotated\n^\n./cems2cli/command/machine.py:344:89: E501 line too long (101 > 88 characters)\n    # Add a row to the table if the machine is available print it in green, otherwise print it in red\n                                                                                        ^"
+                        },
+                        {
+                            "valid": true,
+                            "message": "JSON files are compliant with jsonlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "jsonlint",
+                                "lang": "JSON",
+                                "version": "1.6.3",
+                                "docker": {
+                                    "dockerfile": "QC.Sty/jsonlint/Dockerfile",
+                                    "reviewed": "2021-11-23"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty github.com/jaimeib/CEMS2 jsonlint",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "jsonlint-cli \"**/*.json\""
+                                    ],
+                                    "stdout_text": "",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/97/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Uni": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Uni01": {
+                    "description": "Are the tests passing through an automated means?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the failing test cases found by the {tool_name} tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Test cases are not passing using None testing framework",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "pytest",
+                                "lang": "Python",
+                                "version": "7.1.3",
+                                "docker": {
+                                    "image": "eoscsynergy/sqaaas-pytest:7.1.3-alpha",
+                                    "reviewed": "2023-08-09"
+                                },
+                                "ci": {
+                                    "name": "QC.Uni github.com/jaimeib/CEMS2 pytest",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "pytest  --json-report  --json-report-indent 4"
+                                    ],
+                                    "stdout_text": "============================= test session starts ==============================\nplatform linux -- Python 3.9.17, pytest-7.1.3, pluggy-1.2.0\nrootdir: /sqaaas-build/github.com/jaimeib/CEMS2\nplugins: metadata-3.0.0, json-report-1.5.0\ncollected 0 items / 1 error\n\n==================================== ERRORS ====================================\n_______ ERROR collecting cems2/API/test/test_routes_machine_database.py ________\nImportError while importing test module '/sqaaas-build/github.com/jaimeib/CEMS2/cems2/API/test/test_routes_machine_database.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ncems2/API/test/test_routes_machine_database.py:6: in <module>\n    from fastapi import status as HTTPStatus\nE   ModuleNotFoundError: No module named 'fastapi'\n--------------------------------- JSON report ----------------------------------\nreport saved to: .report.json\n=========================== short test summary info ============================\nERROR cems2/API/test/test_routes_machine_database.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n=============================== 1 error in 0.27s ===============================",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Ver": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Ver01.0": {
+                    "description": "Are tags being used for releasing software",
+                    "requirement_level": "MUST",
+                    "hint": "Git tags are a convenient way to release software. This subcriterion checks if any git tag is present in the code history. More info on it-scm.com/book/en/v2/Git-Basics-Tagging\" target=\"_blank\">git tagging</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "The code repository does not use tags for releasing new software versions",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/jaimeib/CEMS2 get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver01": {
+                    "description": "Is the latest release compliant with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Latest tag must be compliant with <a href=\"https://semver.org\" target=\"_blank\">SemVer specification</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Latest release tag None found, but is not SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/jaimeib/CEMS2 get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver02": {
+                    "description": "Are all release tags with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Existent release tags shall be <a href=\"https://semver.org\" target=\"_blank\">SemVer</a> compliant for this subcriterion to be successful",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "All release tags are SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/jaimeib/CEMS2 get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CEMS2.assess.sqaaas/job/main/2/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CEMS2.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 33,
+                "total_subcriteria": 3,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Met": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Met01": {
+                    "description": "Is the software citable?",
+                    "valid": false,
+                    "hint": "The two formats for software citation supported by SQAaaS are: 1) <a href=\"https://codemeta.github.io/\" target=\"_blank\">CodeMeta</a> and 2) <a href=\"https://citation-file-format.github.io/\" target=\"_blank\">Citation File Format (CFF)</a>. While CodeMeta provides you with a more comprehensive description, CFF is a more lightweight, good-enough approach to software (with built-in support by GitHub) citation. Both provide tools (<a href=\"https://codemeta.github.io/codemeta-generator/\" target=\"_blank\">CodeMeta generator</a>, <a href=\"https://citation-file-format.github.io/cff-initializer-javascript/#/\" target=\"_blank\">CFFINIT</a>)to easily generate a working citation file. Once having the file, be sure to add it to the root path of your code repo.",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "No matching files found for language <CodeMeta> in repository searching by extensions or filenames\nNo matching files found for language <Citation File Format> in repository searching by extensions or filenames"
+                        }
+                    ],
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        }
+    },
+    "badge": {
+        "software": {
+            "criteria": {
+                "bronze": {
+                    "to_fulfill": [
+                        "QC.Doc",
+                        "QC.Lic",
+                        "QC.Acc"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "silver": {
+                    "to_fulfill": [
+                        "QC.Lic",
+                        "QC.Ver",
+                        "QC.Doc",
+                        "QC.Met",
+                        "QC.Acc"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Ver",
+                        "QC.Lic",
+                        "QC.Met"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "gold": {
+                    "to_fulfill": [
+                        "QC.Lic",
+                        "QC.Ver",
+                        "QC.Uni",
+                        "QC.Sec",
+                        "QC.Sty",
+                        "QC.Doc",
+                        "QC.Met",
+                        "QC.Acc"
+                    ],
+                    "missing": [
+                        "QC.Lic",
+                        "QC.Ver",
+                        "QC.Uni",
+                        "QC.Sty",
+                        "QC.Doc",
+                        "QC.Met"
+                    ],
+                    "fulfilled": [
+                        "QC.Sec",
+                        "QC.Acc"
+                    ]
+                }
+            },
+            "data": {}
+        }
+    }
+}
