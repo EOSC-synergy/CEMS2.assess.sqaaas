@@ -1,0 +1,68 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: main
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/jaimeib/CEMS2:
+      branch: main
+      repo: https://github.com/jaimeib/CEMS2
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/jaimeib/CEMS2 git:
+        commands:
+        - /usr/bin/env sh .sqa/script.ugly-chartreuse-javanese.sh
+        container: qc.acc_woolly-sapphire-frog
+  QC.Doc:
+    repos:
+      github.com/jaimeib/CEMS2 find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.boozy-smalt-chimpanzee.sh
+        container: qc.doc_boozy-pumpkin-bison
+      github.com/jaimeib/CEMS2 git:
+        commands:
+        - /usr/bin/env sh .sqa/script.stuffy-white-sheepdog.sh
+        container: qc.doc_skanky-cyan-gharial
+      github.com/jaimeib/CEMS2 markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.cloudy-aqua-alligator.sh
+        container: qc.doc_sleepy-vermilion-boar
+  QC.Lic:
+    repos:
+      github.com/jaimeib/CEMS2 licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.flimsy-celadon-boar.sh
+        container: qc.lic_nerdy-cyan-panda
+  QC.Sec:
+    repos:
+      github.com/jaimeib/CEMS2 bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.tasty-fuchsia-akita.sh
+        container: qc.sec_geeky-cerise-squirrel
+  QC.Sty:
+    repos:
+      github.com/jaimeib/CEMS2 flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.cheeky-peach-hare.sh
+        container: qc.sty_pretty-charcoal-dollar
+      github.com/jaimeib/CEMS2 jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.fuzzy-sapphire-newt.sh
+        container: qc.sty_lanky-cardinal-monster
+  QC.Uni:
+    repos:
+      github.com/jaimeib/CEMS2 pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.cozy-malachite-tarantula.sh
+        container: qc.uni_sloppy-gold-jellyfish
+  QC.Ver:
+    repos:
+      github.com/jaimeib/CEMS2 get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.stuffy-cardinal-baboon.sh
+        container: qc.ver_messy-tomato-rhinoceros
+timeout: 5400
