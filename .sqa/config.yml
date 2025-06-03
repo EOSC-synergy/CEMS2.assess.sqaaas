@@ -15,54 +15,54 @@ sqa_criteria:
     repos:
       github.com/jaimeib/CEMS2 git:
         commands:
-        - /usr/bin/env sh .sqa/script.ugly-chartreuse-javanese.sh
-        container: qc.acc_woolly-sapphire-frog
+        - /usr/bin/env sh .sqa/script.squeaky-teal-quokka.sh
+        container: qc.acc_homey-cardinal-newt
   QC.Doc:
     repos:
       github.com/jaimeib/CEMS2 find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.boozy-smalt-chimpanzee.sh
-        container: qc.doc_boozy-pumpkin-bison
+        - /usr/bin/env sh .sqa/script.shaggy-ruby-earwig.sh
+        container: qc.doc_homey-jade-butterfly
       github.com/jaimeib/CEMS2 git:
         commands:
-        - /usr/bin/env sh .sqa/script.stuffy-white-sheepdog.sh
-        container: qc.doc_skanky-cyan-gharial
+        - /usr/bin/env sh .sqa/script.lumpy-lavender-manatee.sh
+        container: qc.doc_chewy-eggplant-newt
       github.com/jaimeib/CEMS2 markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.cloudy-aqua-alligator.sh
-        container: qc.doc_sleepy-vermilion-boar
+        - /usr/bin/env sh .sqa/script.shaggy-thistle-numbat.sh
+        container: qc.doc_smelly-amber-crane
   QC.Lic:
     repos:
       github.com/jaimeib/CEMS2 licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.flimsy-celadon-boar.sh
-        container: qc.lic_nerdy-cyan-panda
+        - /usr/bin/env sh .sqa/script.tasty-champagne-dollar.sh
+        container: qc.lic_cozy-buff-hyrax
   QC.Sec:
     repos:
       github.com/jaimeib/CEMS2 bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.tasty-fuchsia-akita.sh
-        container: qc.sec_geeky-cerise-squirrel
+        - /usr/bin/env sh .sqa/script.squeaky-bistre-squid.sh
+        container: qc.sec_frumpy-coral-kingfisher
   QC.Sty:
     repos:
       github.com/jaimeib/CEMS2 flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.cheeky-peach-hare.sh
-        container: qc.sty_pretty-charcoal-dollar
+        - /usr/bin/env sh .sqa/script.whiny-maroon-quoll.sh
+        container: qc.sty_frumpy-lime-spitz
       github.com/jaimeib/CEMS2 jsonlint:
         commands:
-        - /usr/bin/env sh .sqa/script.fuzzy-sapphire-newt.sh
-        container: qc.sty_lanky-cardinal-monster
+        - /usr/bin/env sh .sqa/script.sleazy-cinnabar-saola.sh
+        container: qc.sty_ready-ruby-magpie
   QC.Uni:
     repos:
       github.com/jaimeib/CEMS2 pytest:
         commands:
-        - /usr/bin/env sh .sqa/script.cozy-malachite-tarantula.sh
-        container: qc.uni_sloppy-gold-jellyfish
+        - /usr/bin/env sh .sqa/script.gummy-charcoal-bracke.sh
+        container: qc.uni_gimpy-xanthic-zorse
   QC.Ver:
     repos:
       github.com/jaimeib/CEMS2 get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.stuffy-cardinal-baboon.sh
-        container: qc.ver_messy-tomato-rhinoceros
+        - /usr/bin/env sh .sqa/script.craggy-harlequin-heron.sh
+        container: qc.ver_zippy-firebrick-indri
 timeout: 5400
